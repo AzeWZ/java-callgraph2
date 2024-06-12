@@ -76,6 +76,7 @@ public class JavaCGFileUtil {
      * @throws IOException
      */
     public static void write2FileWithTab(Writer writer, String... data) throws IOException {
+        logger.info("write2FileWithTab: {}", appendFileColumn(data));
         writer.write(appendFileColumn(data) + JavaCGConstants.NEW_LINE);
     }
 

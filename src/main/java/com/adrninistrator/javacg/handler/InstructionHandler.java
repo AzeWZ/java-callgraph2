@@ -145,12 +145,6 @@ public class InstructionHandler {
     private Set<Instruction> iSet = new HashSet<>();
     public BaseInstructionParseResult parse(InstructionHandle ih) {
         Instruction i = ih.getInstruction();
-        if(iSet.contains(i)){
-            logger.info("已经处理过：{},{}",i.getOpcode(),i.getName());
-            return null;
-        }else{
-            iSet.add(i);
-        }
         short opCode = i.getOpcode();
         BaseInstructionParseResult instructionParseResult = null;
 

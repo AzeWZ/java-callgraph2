@@ -371,7 +371,7 @@ public class MethodHandler4TypeAndValue extends AbstractMethodHandler {
     private void handleAllInstruction() throws IOException {
         while (true) {
             int position = ih.getPosition();
-            logger.info("处理指令 {} ({})", JavaCGInstructionUtil.getInstructionHandlePrintInfo(ih), getSourceLine());
+            logger.info("{},处理指令 {} ({})",javaClass.getClassName(),JavaCGInstructionUtil.getInstructionHandlePrintInfo(ih), getSourceLine());
 
             // 判断跳转目标指令是否跳过处理
             if (skipJumpTargetInstructionHandle()) {

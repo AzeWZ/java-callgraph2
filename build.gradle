@@ -16,7 +16,6 @@ def defaultEncoding = 'UTF-8'
 [compileJava, compileTestJava]*.options*.encoding = defaultEncoding
 
 project.buildDir = 'build'
-
 repositories {
     mavenCentral()
 }

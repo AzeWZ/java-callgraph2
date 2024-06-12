@@ -75,7 +75,9 @@ public class JavaCGConfManager {
         // 获取ignore_jar_file_keyword.properties中的配置参数
         Set<String> ignoreJarFileKeywordSet = javaCGConfigureWrapper.getOtherConfigSet(JavaCGOtherConfigFileUseSetEnum.OCFUSE_IGNORE_JAR_FILE_KEYWORD, true);
         confInfo.setIgnoreJarFileKeywordSet(ignoreJarFileKeywordSet);
-
+        //只处理带有关键字的类
+        Set<String> onlyJarFileKeywordSet = javaCGConfigureWrapper.getOtherConfigSet(JavaCGOtherConfigFileUseSetEnum.OCFUSE_ONLY_JAR_FILE_KEYWORD, true);
+        confInfo.setOnlyJarFileKeywordSet(onlyJarFileKeywordSet);
         // 获取ignore_jar_file_name.properties中的配置参数
         Set<String> ignoreJarFileNameSet = javaCGConfigureWrapper.getOtherConfigSet(JavaCGOtherConfigFileUseSetEnum.OCFUSE_IGNORE_JAR_FILE_NAME, true);
         confInfo.setIgnoreJarFileNameSet(ignoreJarFileNameSet);

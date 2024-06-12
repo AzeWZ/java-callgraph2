@@ -28,6 +28,13 @@ public enum JavaCGOtherConfigFileUseSetEnum {
                     + JavaCGConstants.NEW_LINE + "(示例) a.class"
                     + JavaCGConstants.NEW_LINE + "(示例) b.xml"
     ),
+    OCFUSE_ONLY_JAR_FILE_KEYWORD(JavaCGConstants.DIR_CONFIG + "/only_jar_file_keyword.properties",
+            "只处理带有这些关键字的类"
+                    + JavaCGConstants.NEW_LINE + "(格式) 文件名区分大小写，需要包含文件后缀"
+                    + JavaCGConstants.NEW_LINE + "(影响) 假如当前文件非空，且需要将多个jar包/目录合并为一个jar包，需要忽略的文件[会]被合并到新的jar包中"
+                    + JavaCGConstants.NEW_LINE + "(示例) a.class"
+                    + JavaCGConstants.NEW_LINE + "(示例) b.xml"
+    ),
     OCFUSE_IGNORE_JAR_FILE_NAME(JavaCGConstants.DIR_CONFIG + "/ignore_jar_file_name.properties",
             "(作用) 在处理jar包中的文件时，文件路径包含当前文件中的关键字时就忽略（每行代表一个关键字，支持多行）"
                     + JavaCGConstants.NEW_LINE + "(格式) 关键字可以包含斜杠，也可以不包含斜杠"
