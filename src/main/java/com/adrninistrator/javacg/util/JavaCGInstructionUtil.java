@@ -157,7 +157,7 @@ public class JavaCGInstructionUtil {
         } else if (instruction instanceof BranchInstruction) {
             extra = " " + ((BranchInstruction) instruction).getTarget().getPosition();
         }
-        return "[" + ih.getPosition() + "] " + instruction.getClass().getSimpleName() + extra;
+        return ih.getInstruction().getName()+"[" + ih.getPosition() + "] " + instruction.getClass().getSimpleName() + extra;
     }
 
     /**

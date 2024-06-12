@@ -76,6 +76,7 @@ public class JavaCGFileUtil {
      * @throws IOException
      */
     public static void write2FileWithTab(Writer writer, String... data) throws IOException {
+        logger.info("write2FileWithTab: {}", appendFileColumn(data));
         writer.write(appendFileColumn(data) + JavaCGConstants.NEW_LINE);
     }
 
@@ -206,7 +207,7 @@ public class JavaCGFileUtil {
                 当URL中的protocol为"file"时，说明对应的资源为独立文件的形式
                 若为"jar"则说明对应的资源是jar包中的文件，不能通过以下方式处理
              */
-            logger.info("从classpath中获取文件 {}", url);
+            logger.info("从classpath中获取文件{}", url);
             try {
                 return new File(url.toURI());
             } catch (Exception e) {

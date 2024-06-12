@@ -25,7 +25,8 @@ public class JavaCGConfInfo {
 
     // 在处理jar包中的文件时，文件名在当前Set中时就忽略
     private Set<String> ignoreJarFileNameSet;
-
+    // 只处理带有这些关键字的类
+    private Set<String> onlyJarFileKeywordSet;
     /*
         在处理通过get/set方法的字段关联关系时使用，指定方法返回值与被调用对象或参数认为是等值转换的方法
         外层key   类名
@@ -58,6 +59,7 @@ public class JavaCGConfInfo {
 
     // 生成文件后缀名
     private String outputFileExt;
+
 
     public List<String> getJarDirList() {
         return jarDirList;
@@ -169,5 +171,14 @@ public class JavaCGConfInfo {
 
     public void setOutputFileExt(String outputFileExt) {
         this.outputFileExt = outputFileExt;
+    }
+
+    public void setOnlyJarFileKeywordSet(Set<String> onlyJarFileKeywordSet) {
+        this.onlyJarFileKeywordSet = onlyJarFileKeywordSet;
+    }
+
+    public Set<String> getOnlyJarFileKeywordSet() {
+        return onlyJarFileKeywordSet;
+
     }
 }

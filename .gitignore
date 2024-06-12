@@ -12,3 +12,4 @@ jar_output_dir/
 log_javacg/
 runlocal/
 config_local/
+/.fastRequest/config/fastRequestCurrentProjectConfig.json

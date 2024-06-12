@@ -202,6 +202,14 @@ public abstract class AbstractJarEntryParser {
                 return true;
             }
         }
+        if(javaCGConfInfo.getOnlyJarFileKeywordSet()!=null&&javaCGConfInfo.getOnlyJarFileKeywordSet().size()>0){
+            for (String onlyKeyword : javaCGConfInfo.getOnlyJarFileKeywordSet()) {
+                if(jarEntryPath.contains(onlyKeyword)){
+                    return false;
+                }
+            }
+            return true;
+        }
         return false;
     }
 
