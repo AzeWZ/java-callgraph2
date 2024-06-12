@@ -70,6 +70,7 @@ List disruptor = ['com.lmax:disruptor:3.3.7']
 dependencies {
     api apache_common, bcel, zip4j, slf4j
     testImplementation junit, log4j, disruptor
+    implementation 'org.slf4j:slf4j-simple:2.0.13'
 }
 
 compileJava.options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
