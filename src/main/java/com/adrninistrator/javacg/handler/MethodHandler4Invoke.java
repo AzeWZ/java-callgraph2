@@ -945,7 +945,7 @@ public class MethodHandler4Invoke extends AbstractMethodHandler {
         // 获得BootstrapMethod的方法信息
         JavaCGMethodInfo bootstrapMethodInfo = JavaCGBootstrapMethodUtil.getBootstrapMethodInfo(bootstrapMethod, javaClass);
         if (bootstrapMethodInfo == null) {
-            logger.warn("无法找到bootstrapMethod的方法信息 {} {}", callerClassName, bootstrapMethod);
+            logger.warn("无法找到bootstrapMethod的方法信息{} {}", callerClassName, bootstrapMethod);
             return;
         }
 

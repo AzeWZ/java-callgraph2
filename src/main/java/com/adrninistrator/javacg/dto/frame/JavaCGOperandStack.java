@@ -44,7 +44,7 @@ public class JavaCGOperandStack {
         }
 
         if (head >= capacity) {
-            logger.error("栈已满 {} {}", head, element);
+            logger.error("栈已满{} {}", head, element);
             throw new JavaCGRuntimeException("栈已满");
         }
 

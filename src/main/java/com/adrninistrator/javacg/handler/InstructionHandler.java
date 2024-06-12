@@ -76,8 +76,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * @author adrninistrator
@@ -140,9 +142,15 @@ public class InstructionHandler {
         this.nonStaticFieldInfoMap = nonStaticFieldInfoMap;
         this.staticFieldInfoMap = staticFieldInfoMap;
     }
-
+    private Set<Instruction> iSet = new HashSet<>();
     public BaseInstructionParseResult parse(InstructionHandle ih) {
         Instruction i = ih.getInstruction();
+        if(iSet.contains(i)){
+            logger.info("已经处理过：{},{}",i.getOpcode(),i.getName());
+            return null;
+        }else{
+            iSet.add(i);
+        }
         short opCode = i.getOpcode();
         BaseInstructionParseResult instructionParseResult = null;
 

@@ -113,7 +113,7 @@ public class JarEntryPreHandle1Parser extends AbstractJarEntryParser {
             return true;
         }
 
-        // 对一个类进行预处理
+        // 对一个类进行预处理,将类的接口，与可能实现的方法。接入到map中。
         preHandle1Class(javaClass);
 
         if (javaCGConfInfo.isParseMethodCallTypeValue()) {

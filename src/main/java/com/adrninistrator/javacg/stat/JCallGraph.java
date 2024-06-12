@@ -458,7 +458,13 @@ public class JCallGraph {
         }
     }
 
-    // 处理一个jar包
+    /**
+     * 处理逻辑的主流程
+     * @param jarFilePath
+     * @param methodCallWriter
+     * @param springBeanWriter
+     * @return
+     */
     private boolean handleJar(String jarFilePath, Writer methodCallWriter, Writer springBeanWriter) {
         try {
             // 对Class进行预处理
