@@ -34,4 +34,7 @@ public class WriterSupportSkip implements Closeable {
         }
         writer.write(data);
     }
+    public void flush() throws IOException {
+        writer.flush();
+    }
 }
