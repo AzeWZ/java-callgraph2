@@ -3,12 +3,14 @@ package com.adrninistrator.javacg.parser;
 import com.adrninistrator.javacg.common.JavaCGConstants;
 import com.adrninistrator.javacg.common.enums.JavaCGYesNoEnum;
 import com.adrninistrator.javacg.conf.JavaCGConfInfo;
+import com.adrninistrator.javacg.dto.classes.ClassInfo;
 import com.adrninistrator.javacg.dto.classes.InnerClassInfo;
 import com.adrninistrator.javacg.dto.counter.JavaCGCounter;
 import com.adrninistrator.javacg.dto.jar.ClassAndJarNum;
 import com.adrninistrator.javacg.dto.jar.JarInfo;
 import com.adrninistrator.javacg.extensions.manager.ExtensionsManager;
 import com.adrninistrator.javacg.handler.ClassHandler;
+import com.adrninistrator.javacg.neo4j.Neo4jUtils;
 import com.adrninistrator.javacg.spring.UseSpringBeanByAnnotationHandler;
 import com.adrninistrator.javacg.util.JavaCGByteCodeUtil;
 import com.adrninistrator.javacg.util.JavaCGClassMethodUtil;
@@ -22,6 +24,7 @@ import org.apache.bcel.classfile.ClassParser;
 import org.apache.bcel.classfile.JavaClass;
 import org.apache.bcel.classfile.Signature;
 import org.apache.commons.codec.digest.DigestUtils;
+import org.neo4j.ogm.session.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -228,6 +231,12 @@ public class JarEntryHandleParser extends AbstractJarEntryParser {
 
         String classMd5 = DigestUtils.md5Hex(javaClass.getBytes());
         // 记录类的信息
+        //写入 neo4j
+        ClassInfo classInfo = new ClassInfo();
+        classInfo.setClassName(className);
+        classInfo.setAccessFlags(javaClass.getAccessFlags());
+        Session session = Neo4jUtils.getSession();
+        session.save(classInfo);
         JavaCGFileUtil.write2FileWithTab(classInfoWriter, className, String.valueOf(javaClass.getAccessFlags()), classMd5, classJarNum);
 
         // 记录继承及实现相关信息
